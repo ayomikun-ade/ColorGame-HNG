@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Game</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="container">
-      <h1 data-testid="gameInstructions">Guess the correct color!</h1>
+      <h1>Color Guessing Game!</h1>
+      <p data-testid="gameInstructions">Guess the correct color!</p>
       <div class="color-box" data-testid="colorBox"></div>
       <div class="options" id="options"></div>
       <p data-testid="gameStatus" id="gameStatus"></p>
       <p data-testid="score">Score: <span id="score">0</span></p>
       <button data-testid="newGameButton" id="newGameButton">New Game</button>
     </div>
-    <script src="./script.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

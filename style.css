@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Roboto Slab", erif;
+  font-family: "Roboto Slab", serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,10 @@ body {
   /* background-color: #f0f0f0; */
   background-color: grey;
   color: white;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
 }
 
 .container {
@@ -49,6 +53,8 @@ body {
 
 #gameStatus {
   margin: 1rem 0;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 button {
@@ -61,11 +67,11 @@ button {
   background: #fff;
   font-family: inherit;
   cursor: pointer;
-  transition: ease-in-out;
+  transition: ease-in-out 0.3s;
 }
 
 button:hover {
-  background-color: grey;
+  background-color: rgb(170, 167, 167);
 }
 
 .fade-out {
@@ -78,5 +84,15 @@ button:hover {
   }
   to {
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 2rem 2rem;
+    margin: 0 0.3rem;
+  }
+  .options {
+    flex-wrap: wrap;
   }
 }

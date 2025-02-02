@@ -1,5 +1,6 @@
 const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
 let score = 0;
+let targetColorName = "";
 
 function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
@@ -7,7 +8,7 @@ function getRandomColor() {
 
 function getShades(color) {
   const shades = [];
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 5; i++) {
     const shade = `rgba(${color.r}, ${color.g}, ${color.b}, ${i * 0.2})`;
     shades.push(shade);
   }
@@ -15,7 +16,7 @@ function getShades(color) {
 }
 
 function setupGame() {
-  const targetColorName = getRandomColor();
+  targetColorName = getRandomColor();
   const targetRGB = getRGB(targetColorName);
 
   document.querySelector(
@@ -27,11 +28,16 @@ function setupGame() {
 
   const shades = getShades(targetRGB);
 
-  shades.forEach((shade) => {
+  // Add full opacity for the correct guess option
+  const correctShade = `rgba(${targetRGB.r}, ${targetRGB.g}, ${targetRGB.b}, 1)`;
+  shades.push(correctShade); // Add the correct shade with full opacity
+  const shuffledShades = shades.sort(() => Math.random() - 0.5); // Shuffle all shades
+
+  shuffledShades.forEach((shade) => {
     const button = document.createElement("div");
     button.classList.add("option");
     button.style.backgroundColor = shade;
-    button.addEventListener("click", () => handleGuess(shade, targetRGB));
+    button.addEventListener("click", () => handleGuess(shade, correctShade));
     optionsContainer.appendChild(button);
   });
 
@@ -61,7 +67,7 @@ function handleGuess(guessShade, targetRGB) {
     score++;
     document.getElementById("score").textContent = score;
     setupGame(); // Start a new round
-    document.getElementById("gameStatus").textContent = "Correct 🎉!";
+    document.getElementById("gameStatus").textContent = "Correct!";
   } else {
     document.getElementById("gameStatus").textContent = "Wrong! Try again.";
   }

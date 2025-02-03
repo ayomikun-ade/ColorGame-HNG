@@ -12,7 +12,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background-color: #f0f0f0; */
   background-color: grey;
   color: white;
 }
@@ -23,17 +22,17 @@ h1 {
 
 .container {
   text-align: center;
-  /* background-color: #1a1919; */
   background-color: #2c2c2c;
   padding: 2rem 3.5rem;
   border-radius: 10px;
-  box-shadow: 4px 4px 15px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease-in-out;
 }
 
 .color-box {
   width: 200px;
   height: 200px;
-  margin: 20px auto;
+  margin: 1.5rem auto;
   /* border: 1px solid #1d1c1c; */
   border-radius: 8px;
 }
@@ -44,11 +43,16 @@ h1 {
 }
 
 .option {
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin: 5px;
   cursor: pointer;
   border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
+
+.option:hover {
+  scale: 1.05;
 }
 
 #gameStatus {
@@ -61,6 +65,7 @@ button {
   padding: 10px 20px;
   margin-top: 1.5rem;
   font-size: 16px;
+  font-weight: 500;
   border: none;
   outline: none;
   border-radius: 10px;
@@ -68,22 +73,54 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: ease-in-out 0.3s;
+  box-shadow: 8px 3px 25px 3px rgba(255, 255, 255, 0.15);
 }
 
 button:hover {
   background-color: rgb(170, 167, 167);
 }
 
-.fade-out {
-  animation: fadeOut 0.5s forwards;
+.shake {
+  animation: shake 0.5s ease forwards;
 }
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
+.pulse {
+  animation: pulse 0.6s ease forwards;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
   }
-  to {
-    opacity: 0;
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
